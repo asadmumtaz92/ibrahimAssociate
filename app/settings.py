@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     # MY APPS
     'home',
-    # 'myPosts',
+    'myPosts',
 ]
 
 MIDDLEWARE = [
@@ -131,4 +131,4 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# LOGIN_REDIRECT_URL = '/post/all'
+LOGIN_REDIRECT_URL = '/post/all'
