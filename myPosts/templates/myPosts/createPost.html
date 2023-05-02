@@ -1,0 +1,83 @@
+{% extends "BaseTemplate.html" %}
+{% load static %}
+
+{% block content %}
+    <head>
+        <title>Create Post</title>
+        <style>
+            input[type="text"], input[type="number"] {
+                background-color: rgba(238, 235, 235, 0.40);
+                color: rgba(111, 109, 109, 0.735);
+                border: 0.5px solid #8080804f;
+                border-radius: 5px;
+                padding-left: 10px;
+                margin-top: 20px;
+                font-size: 18px;
+                height: 40px;
+                width: 100%;
+            }
+            input[type="file"] {
+                color: rgba(111, 109, 109, 0.735);
+                border: 0.5px solid #8080804f;
+                border-radius: 5px;
+                font-size: 18px;
+                width: 100%;
+            }
+            input[type="submit"] {
+                border: 0.5px solid #8080804f;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                margin-bottom: 50px;
+                border-radius: 5px;
+                padding: 10px 0px;
+                margin-top: 50px;
+                margin-left: 25%;
+                font-weight: 700;
+                font-size: 20px;
+                width: 50%;
+            }
+            textarea {
+                background-color: rgba(238, 235, 235, 0.40);
+                color: rgba(111, 109, 109, 0.735);
+                border: 0.5px solid #a9a8a826;
+                padding-left: 10px;
+                border-radius: 7px;
+                margin-top: 20px;
+                font-size: 18px;
+                width: 100%;
+            }
+            label {
+                margin-bottom: 0px;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+
+    <div class="">
+        <h1 style="color:red; text-align: center;">Create New Post.</h1>
+
+        <div class="container-fluid">
+            <div class="row" style="width: 60%;margin: auto;">
+                <form id="post_form" method="POST" action="" enctype="multipart/form-data">
+                
+                    {% csrf_token %}
+
+                    {% for hidden in postForm.hidden_fields %}
+                        {{ hidden }}
+                    {% endfor %}
+                    
+                    {% for field in postForm %}
+                        {{ field }} <br />
+                    {% endfor %}
+        
+                    {{ formset.management_form }}
+                    {% for form in formset %}
+                        {{ form }}
+                    {% endfor %}
+            
+                    <input type="submit" name="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock%}
