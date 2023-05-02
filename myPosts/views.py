@@ -3,11 +3,12 @@ from django.shortcuts import render
 # from django.views.generic.edit import DeleteView
 # from django.contrib.auth.mixins import LoginRequiredMixin
 
-# from .models import myPosts
+from .models import myPosts_1
 
 # VIEW ALL POSTS
 def allPost(request):
-    return render(request, 'myPosts/allPost.html')
+    data = myPosts_1.objects.all()
+    return render(request, 'myPosts/allPost.html', { 'data': data })
 
 
 # VIEW POST DETAIL

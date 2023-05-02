@@ -10,14 +10,18 @@
         <h1 style="color:red; text-align: center;">All Posts...</h1>
 
         <div class="container-fluid">
+            <!-- {% data %} -->
 
             <div class="row">
-                <div class="col-sm-4" style="background-color:#e7e4e445;">
-                    <img src="https://takkaia.com/assets/images/mobile_development_bg.webp" style="width: 100%; float: left;" height="340px" />
-                    <div style="position: relative;">
-                        <h3>This is my post title...</h3>
+                {% for post in data %}
+                    <div class="col-sm-4" style="background-color:#e7e4e445;">
+                        <img src="https://takkaia.com/assets/images/mobile_development_bg.webp" style="width: 100%; float: left;" height="300px" />
+                        <div style="position: relative;">
+                            <h3>This is my post title...</h3>
+                            <p>{{ post.title}}</p>
+                        </div>
                     </div>
-                </div>
+                {% endfor %}
                 <div class="col-sm-4" style="background-color:#e7e4e445;">
                     <img src="https://takkaia.com/assets/images/mobile_development_bg.webp" style="width: 100%; float: left;" height="340px" />
                     <div style="position: relative;">
