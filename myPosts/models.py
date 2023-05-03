@@ -8,7 +8,51 @@ class Posts(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     demand = models.IntegerField()
-    viewed = models.IntegerField()
+    type = models.CharField(choices=(
+            ('Residential', "Residential"),
+            ('Commercial', "Commercial"),
+        ),
+        max_length = 11
+    )
+    size = models.CharField(choices=(
+            ('4 Marla', "4 Marla"),
+            ('5 Marla', "5 Marla"),
+            ('8 Marla', "8 Marla"),
+            ('10 Marla', "10 Marla"),
+            ('1 Kanal', "1 Kanal"),
+            ('2 Kanal', "2 Kanal"),
+        ),
+        max_length = 8
+    )
+    sector = models.CharField(choices=(
+            ('Other', 'Other'),
+            ('A', "Sector A"),
+            ('B', "Sector B"),
+            ('B1', "Sector B1"),
+            ('B2', "Sector B2"),
+            ('C', "Sector C"),
+            ('C1', "Sector C1"),
+            ('C2', "Sector C2"),
+            ('C3', "Sector C3"),
+            ('D', "Sector D"),
+            ('E', "Sector E"),
+            ('F', "Sector F"),
+            ('F1', "Sector F1"),
+            ('G', "Sector G"),
+            ('H', "Sector H"),
+            ('I', "Sector I"),
+            ('J', "Sector J"),
+            ('K', "Sector K"),
+            ('L', "Sector L"),
+            ('M', "Sector M"),
+            ('N', "Sector N"),
+            ('O', "Sector O"),
+            ('P', "Sector P"),
+
+        ),
+        max_length = 5
+    )
+    viewed = models.CharField(max_length=7, default='0', editable=False)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

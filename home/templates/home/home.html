@@ -4,20 +4,45 @@
 {% block content %}
     <head>
         <title>Home</title>
+        <style>
+            .bg-bg {
+                background-image: url('https://png.pngtree.com/background/20210711/original/pngtree-golden-high-end-real-estate-background-design-picture-image_1145489.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 100%; 
+                width: 100%;
+            }
+        </style>
     </head>
 
-    <div class="">
-        <!-- <h1 style="color:red; text-align: center;"></h1> -->
+    <body class="bg-bg">
 
-        <div class="container-fluid">
+                <div style="width: 100%; margin: auto;" class="text-center mt-3">
+                    <img src="{% static 'images/logo.png' %}" style="margin: auto auto;" />
+                </div>
 
-            {% if data.name %}
-                <h4 style="text-align: center; margin-top: 40px; color: black;">Name: {{ data.name }}</h4>
-                <p style="text-align: center; margin-top: 10px; color: black;">Age: {{ data.age }} year's</p>
-            {% else %}
-                <h2 style="text-align: center; margin-top: 40px; color: black;">Home page</h2>
-            {% endif %}
+                {% if data.name %}
+                    <h3 style="text-align: center; margin-top: 10px; color: white;">
+                        <!-- {{ data.name }} -->
+                        IBRAHIM ASSOCIATES
+                    </h3>
+                    <p style="text-align: center; margin-top: 10px; color: white;">
+                        <strong>Address: </strong> 
+                        Al-Hussain Arched Office # 5 Sector-G
+                        <br>
+                        Bahria Enclave Islamabad, Pakistan
+                        <!-- {{ data.address }} -->
+                    </p>
+                    <p style="text-align: center; margin-top: 10px; color: white;">
+                        <strong>Mob. </strong>
+                        +92 333 666 3896
+                        <!-- {{ data.contact }} -->
+                    </p>
+                {% else %}
+                    <h2 style="text-align: center; margin-top: 50px; color: white;">Home page</h2>
+                {% endif %}
+            
 
         </div>
-    </div>
+    </body>
 {% endblock%}

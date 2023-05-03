@@ -7,43 +7,66 @@
     </head>
 
     <div class="">
-        <h1 style="color:red; text-align: center;">All Posts...</h1>
+        <h2 class="mt-3 text-center text-black">Recent Posts</h2>
+        <!-- <h4>{{ data_img.image }}</h4> -->
 
         <div class="container-fluid">
-
             <div class="row">
-                {% for post in data %}
-                    <div class="col-sm-4" style="background-color:#e7e4e445;">
-                        <img src="https://takkaia.com/assets/images/mobile_development_bg.webp" style="width: 100%; float: left;" height="300px" />
-                        <div style="position: relative;">
-                            <h3>This is my post title...</h3>
-                            <p>{{ post.title}}</p>
+    
+                <div class="col-sm-9 mt-5">
+                    {% for post in data %}
+                        <div class="row mb-4 pb-4" style="border-bottom: 0.5px solid #c3c3c3;">
+                            <div class="col-sm-4">
+                                <img src="{% static 'postImages/house-for-rent-in-sector-h-clock.jpg' %}" style="width: 100%; float: left; border-radius: 5px;" />
+                            </div>
+                            <div class="col-sm-8 mt-1">
+                                <h4 class="">{{ post.title}}</h4>
+                                <p class="text-justify">{{ post.description|truncatechars:300 }}</p>
+                                <div class="row mt-2">
+                                    <div class="col-sm-6">
+                                        <p class="text-center" style="padding: 8px 0px; border-radius: 5px; background-color: rgba(211, 211, 211, 0.372); font-weight: 500;">Rs. {{ post.demand }}</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-center" style="padding: 8px 0px; border-radius: 5px; background-color: rgba(211, 211, 211, 0.372); font-weight: 500;">Sector {{ post.sector }}</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-center" style="padding: 8px 0px; border-radius: 5px; background-color: rgba(211, 211, 211, 0.372); font-weight: 500;">{{ post.size }}</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-center" style="padding: 8px 0px; border-radius: 5px; background-color: rgba(211, 211, 211, 0.372); font-weight: 500;">{{ post.type }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="col-sm-3 mt-4" style="opacity: 0.5; display: none;">
+                    <h2 class="text-center mb-3">SPECIAL ADDS</h2>
+                    <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <img src="{% static 'postImages/house-for-rent-in-sector-h-clock.jpg' %}" style="width: 100%; float: left; border-radius: 5px;" height="220px" />
+                            <p>Sale 50% discount limited time offer.</p>
+                        </div>
+                        <div class="col-sm-12 mb-3">
+                            <img src="https://takkaia.com/assets/images/mobile_development_bg.webp" style="width: 100%; float: left; border-radius: 5px;" height="220px" />
+                            <p>Sale 50% discount limited time offer.</p>
+                        </div>
+                        <div class="col-sm-12 mb-3">
+                            <img src="{% static 'postImages/house-for-rent-in-sector-h-clock.jpg' %}" style="width: 100%; float: left; border-radius: 5px;" height="220px" />
+                            <p>Sale 50% discount limited time offer.</p>
+                        </div>
+                        <div class="col-sm-12 mb-3">
+                            <img src="https://takkaia.com/assets/images/mobile_development_bg.webp" style="width: 100%; float: left; border-radius: 5px;" height="220px" />
+                            <p>Sale 50% discount limited time offer.</p>
+                        </div>
+                        <div class="col-sm-12 mb-3">
+                            <img src="{% static 'postImages/house-for-rent-in-sector-h-clock.jpg' %}" style="width: 100%; float: left; border-radius: 5px;" height="220px" />
+                            <p>Sale 50% discount limited time offer.</p>
                         </div>
                     </div>
-                {% endfor %}
-                <div class="col-sm-4" style="background-color:#e7e4e445;">
-                    <img src="https://takkaia.com/assets/images/mobile_development_bg.webp" style="width: 100%; float: left;" height="340px" />
-                    <div style="position: relative;">
-                        <h3>This is my post title...</h3>
-                    </div>
-                </div>
-                <div class="col-sm-4" style="background-color:#e7e4e445;">
-                    <img src="https://takkaia.com/assets/images/mobile_development_bg.webp" style="width: 100%; float: left;" height="340px" />
-                    <div style="position: relative;">
-                        <h3>This is my post title...</h3>
-                    </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-sm-4" style="background-color:#e7e4e445;">
-                    <img src="https://takkaia.com/assets/images/mobile_development_bg.webp" style="width: 100%; float: left;" height="340px" />
-                </div>
-                <div class="col-sm-8" style="background-color:#e7e4e445;">
-                    <h3>This is my post title...</h3>
-                </div>
-            </div>
-
         </div>
     </div>
 {% endblock %}

@@ -8,11 +8,11 @@ from . import models
 
 
 class PostsAdmin(admin.ModelAdmin):
-    list_display = ('title',)
+    list_display = ('user', 'title', 'demand', 'size', 'type', 'description', )
 
 
 class ImageAdmin(admin.ModelAdmin):
-    list_display = ('post_id',)
+    list_display = ('post_id', 'image')
 
 admin.site.register(models.Posts, PostsAdmin,)
 admin.site.register(models.Images, ImageAdmin,)

@@ -2,24 +2,29 @@ from django.shortcuts import render
 from django.forms import modelformset_factory
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect # HttpResponse
 from myPosts.form import ImageForm, PostForm
 from myPosts.models import Images, Posts
+# from django.db.models.query import QuerySet
 
 # from django.views.generic import ListView, DeleteView, CreateView, UpdateView
 # from django.views.generic.edit import DeleteView
 # from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-# VIEW ALL POSTS
+# START VIEW ALL POSTS
+@login_required(login_url=('/login'))
 def allPost(request):
     data = Posts.objects.all()
-    return render(request, 'myPosts/allPost.html', { 'data': data })
+    data_img = Images.objects.get(pk=1)
+    return render(request, 'myPosts/allPost.html', { 'data': data, 'data_img': data_img })
+# END VIEW ALL POSTS
 
 
-# VIEW POST DETAIL
+# START VIEW POST DETAIL
 def postDetail(request):
     return render(request, 'myPosts/detailPost.html')
+# END VIEW POST DETAIL
 
 
 # UPDATE POST

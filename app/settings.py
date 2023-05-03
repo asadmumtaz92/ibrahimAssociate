@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     # MY APPS
     'home',
     'myPosts',
-    'myStore',
 ]
 
 MIDDLEWARE = [
