@@ -22,8 +22,9 @@ def allPost(request):
 
 
 # START VIEW POST DETAIL
-def postDetail(request):
-    return render(request, 'myPosts/detailPost.html')
+def postDetail(request, pk):
+    data = Posts.objects.get(pk=pk)
+    return render(request, 'myPosts/detailPost.html',{'data': data})
 # END VIEW POST DETAIL
 
 
